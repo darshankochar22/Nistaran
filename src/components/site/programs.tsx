@@ -9,43 +9,63 @@ import {
 
 import { Card } from "@/components/ui/card";
 import { IconBackground } from "@/components/supabase/Icon/IconBackground";
+import {
+  MiniBadges,
+  MiniChart,
+  MiniChecklist,
+  MiniGrowth,
+  MiniNetwork,
+  MiniTarget,
+} from "@/components/site/mini-illustrations";
 
 const PROGRAMS = [
   {
     icon: BookOpenCheck,
     eyebrow: "Bridge Course",
     title: "Bridge Course Workbooks",
-    text: "Structured workbooks that bridge previous-class gaps for the students who need it most — built to run inside the regular academic calendar.",
+    lead: "Structured workbooks that bridge previous-class gaps",
+    rest: " for the students who need it most — built to run inside the regular academic calendar.",
+    illustration: MiniChecklist,
   },
   {
     icon: Zap,
     eyebrow: "Operations",
     title: "Faster Operations for Daily Business",
-    text: "Streamlined daily workflows — attendance, reporting, internal communication — so running the school takes less manual effort.",
+    lead: "Streamlined daily workflows",
+    rest: " — attendance, reporting, internal communication — so running the school takes less manual effort.",
+    illustration: MiniChart,
   },
   {
     icon: LineChart,
     eyebrow: "Analysis",
     title: "Timely Institutional Analysis",
-    text: "Periodic review across principal & management, admin operations, teacher performance, student needs, and infrastructure — so problems are caught while small.",
+    lead: "Periodic review across principal & management, admin operations, teacher performance, student needs, and infrastructure",
+    rest: " — so problems are caught while small.",
+    illustration: MiniGrowth,
   },
   {
     icon: ClipboardCheck,
     eyebrow: "Teacher Tracking",
     title: "Teacher Performance & Syllabus Execution Tracking",
-    text: "We track the gap between the syllabus planner and its real classroom execution, and run structured feedback cycles that give increments and decrements a clear, data-backed basis.",
+    lead: "We track the gap between the syllabus planner and its real classroom execution",
+    rest: ", and run structured feedback cycles that give increments and decrements a clear, data-backed basis.",
+    illustration: MiniTarget,
   },
   {
     icon: Users2,
     eyebrow: "Parent Access",
     title: "Student-Parent Portal",
-    text: "Parent involvement in most coaching institutes is minimal today. We build a portal that makes a student's performance genuinely easy for parents to access and understand.",
+    lead: "Parent involvement in most coaching institutes is minimal today.",
+    rest: " We build a portal that makes a student's performance genuinely easy for parents to access and understand.",
+    illustration: MiniNetwork,
   },
   {
     icon: UserSquare2,
     eyebrow: "Faculty",
     title: "Faculty Development Program",
-    text: "Structured training and workshops for teaching staff — building classroom capability and a more collaborative, motivated staff culture together.",
+    lead: "Structured training and workshops for teaching staff",
+    rest: " — building classroom capability and a more collaborative, motivated staff culture together.",
+    illustration: MiniBadges,
   },
 ];
 
@@ -74,8 +94,10 @@ export function Programs() {
                 <h3 className="mt-1.5 font-medium text-black">{p.title}</h3>
               </div>
               <p className="text-sm leading-relaxed text-neutral-500">
-                {p.text}
+                <strong className="font-semibold text-black">{p.lead}</strong>
+                {p.rest}
               </p>
+              <p.illustration />
             </Card>
           ))}
         </div>

@@ -1,62 +1,30 @@
 import Image from "next/image";
 
 const CLIENTS = [
-  {
-    name: "Nahta Classes",
-    tag: "CA / CS / CMA coaching, Raipur",
-    logo: "/images/clients/nahta-classes.jpg",
-  },
-  {
-    name: "Taparia Institute",
-    tag: "CBSE / ICSE coaching, Classes VIII–X",
-    logo: "/images/clients/taparia-institute.jpg",
-  },
-  {
-    name: "NSCC Anupam",
-    tag: "Commerce coaching, Class XI",
-    logo: "/images/clients/nscc.jpg",
-  },
-  {
-    name: "NSCC Avanti",
-    tag: "Commerce coaching, Class XII",
-    logo: "/images/clients/nscc.jpg",
-  },
-  {
-    name: "Mahaveer Nx",
-    tag: "Family clothing store, Kawardha",
-    initials: "MN",
-  },
-  {
-    name: "Linen House",
-    tag: "Linen & uniform supply, hospitals & hotels",
-    logo: "/images/clients/linen-house.jpg",
-  },
+  { name: "Nahta Classes", logo: "/images/clients/nahta-classes.jpg" },
+  { name: "Taparia Institute", logo: "/images/clients/taparia-institute.jpg" },
+  { name: "NSCC Anupam", logo: "/images/clients/nscc.jpg" },
+  { name: "NSCC Avanti", logo: "/images/clients/nscc.jpg" },
+  { name: "Mahaveer Nx" },
+  { name: "Linen House", logo: "/images/clients/linen-house.jpg" },
 ];
 
-function ClientPill({ client }: { client: (typeof CLIENTS)[number] }) {
+function ClientMark({ client }: { client: (typeof CLIENTS)[number] }) {
+  if (client.logo) {
+    return (
+      <Image
+        src={client.logo}
+        alt={client.name}
+        width={120}
+        height={40}
+        className="h-9 w-auto shrink-0 object-contain grayscale opacity-50 transition-opacity hover:opacity-90"
+      />
+    );
+  }
   return (
-    <div className="flex shrink-0 items-center gap-3 rounded-full border border-neutral-200 bg-white py-2 pl-2 pr-5 shadow-sm">
-      <div
-        className="flex size-9 items-center justify-center overflow-hidden rounded-full text-xs font-semibold text-white"
-        style={client.initials ? { background: "#171717" } : undefined}
-      >
-        {client.logo ? (
-          <Image
-            src={client.logo}
-            alt=""
-            width={36}
-            height={36}
-            className="size-full bg-white object-contain grayscale"
-          />
-        ) : (
-          client.initials
-        )}
-      </div>
-      <div className="leading-tight">
-        <p className="text-sm font-medium text-black">{client.name}</p>
-        <p className="text-xs text-neutral-400">{client.tag}</p>
-      </div>
-    </div>
+    <span className="shrink-0 whitespace-nowrap text-2xl font-semibold text-neutral-300 transition-colors hover:text-neutral-500">
+      {client.name}
+    </span>
   );
 }
 
@@ -66,22 +34,16 @@ export function Clients() {
   return (
     <section id="clients" className="py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="max-w-2xl">
-          <p className="eyebrow">Who trusts us</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-black">
-            Our loving clients
-          </h2>
-          <p className="mt-3 text-neutral-500">
-            Live, working software — not mockups — running inside these
-            businesses today.
-          </p>
-        </div>
+        <p className="text-center text-sm text-neutral-400">
+          Live, working software — not mockups — trusted by these
+          businesses today
+        </p>
       </div>
 
-      <div className="marquee-mask relative mt-10 overflow-hidden">
-        <div className="marquee-track flex w-max gap-4 [animation-play-state:running] hover:[animation-play-state:paused]">
+      <div className="marquee-mask relative mt-8 overflow-hidden">
+        <div className="marquee-track flex w-max items-center gap-16 [animation-play-state:running] hover:[animation-play-state:paused]">
           {track.map((client, i) => (
-            <ClientPill key={`${client.name}-${i}`} client={client} />
+            <ClientMark key={`${client.name}-${i}`} client={client} />
           ))}
         </div>
       </div>

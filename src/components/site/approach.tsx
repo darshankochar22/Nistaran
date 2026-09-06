@@ -1,31 +1,46 @@
 import { Compass, Search, Target, TrendingUp } from "lucide-react";
 
 import { IconBackground } from "@/components/supabase/Icon/IconBackground";
+import { Card } from "@/components/ui/card";
+import {
+  MiniChecklist,
+  MiniGrowth,
+  MiniNetwork,
+  MiniTarget,
+} from "@/components/site/mini-illustrations";
 
 const STEPS = [
   {
     icon: Search,
     num: "01",
     title: "Audit",
-    text: "We pull the numbers you already have — enquiries, admissions, footfall, ad spend, retention — no new software, no new process.",
+    lead: "We pull the numbers you already have",
+    rest: " — enquiries, admissions, footfall, ad spend, retention — no new software, no new process.",
+    illustration: MiniChecklist,
   },
   {
     icon: Compass,
     num: "02",
     title: "Diagnose",
-    text: "We find exactly where the market misreads you, or where your own funnel is leaking, and put a number on it.",
+    lead: "We find exactly where the market misreads you",
+    rest: ", or where your own funnel is leaking, and put a number on it.",
+    illustration: MiniNetwork,
   },
   {
     icon: Target,
     num: "03",
     title: "Position",
-    text: "One clear repositioning move, built from your data — not a generic marketing playbook copied across every client.",
+    lead: "One clear repositioning move, built from your data",
+    rest: " — not a generic marketing playbook copied across every client.",
+    illustration: MiniTarget,
   },
   {
     icon: TrendingUp,
     num: "04",
     title: "Track",
-    text: "A short follow-up cycle to confirm the move actually shifted the number it was meant to shift.",
+    lead: "A short follow-up cycle",
+    rest: " to confirm the move actually shifted the number it was meant to shift.",
+    illustration: MiniGrowth,
   },
 ];
 
@@ -40,9 +55,12 @@ export function Approach() {
           </h2>
         </div>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((step) => (
-            <div key={step.num} className="flex flex-col gap-3">
+            <Card
+              key={step.num}
+              className="flex flex-col gap-3 rounded-xl border-neutral-200 p-5 shadow-none"
+            >
               <div className="flex items-center gap-3">
                 <IconBackground>
                   <step.icon size={16} className="text-nistaran" />
@@ -51,9 +69,13 @@ export function Approach() {
               </div>
               <h3 className="font-medium text-black">{step.title}</h3>
               <p className="text-sm leading-relaxed text-neutral-500">
-                {step.text}
+                <strong className="font-semibold text-black">
+                  {step.lead}
+                </strong>
+                {step.rest}
               </p>
-            </div>
+              <step.illustration />
+            </Card>
           ))}
         </div>
       </div>

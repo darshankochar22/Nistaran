@@ -3,6 +3,12 @@ import { GraduationCap, HeartHandshake, ShoppingBag, SquareStack } from "lucide-
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card } from "@/components/ui/card";
 import { IconBackground } from "@/components/supabase/Icon/IconBackground";
+import {
+  MiniCalendar,
+  MiniChart,
+  MiniFunnel,
+  MiniNetwork,
+} from "@/components/site/mini-illustrations";
 
 const VERTICALS = [
   {
@@ -10,7 +16,9 @@ const VERTICALS = [
     icon: GraduationCap,
     eyebrow: "Education",
     title: "Coaching institutes, schools & EdTech",
-    text: "We read enrollment funnels, batch-wise dropout, and result-based positioning to show you where enquiries are being lost and where your results aren't being said loudly enough.",
+    lead: "We read enrollment funnels, batch-wise dropout, and result-based positioning",
+    rest: " to show you where enquiries are being lost and where your results aren't being said loudly enough.",
+    illustration: MiniFunnel,
     bullets: [
       "Enrollment funnel & batch retention audit",
       "Marketing spend vs. actual conversion",
@@ -22,7 +30,9 @@ const VERTICALS = [
     icon: ShoppingBag,
     eyebrow: "Sales",
     title: "Retail, franchise & D2C businesses",
-    text: "We look at lead-source ROI, regional performance gaps, and where your sales funnel actually drops off, then hand you one fix worth acting on first.",
+    lead: "We look at lead-source ROI, regional performance gaps, and where your sales funnel actually drops off",
+    rest: ", then hand you one fix worth acting on first.",
+    illustration: MiniChart,
     bullets: [
       "Lead-source return on ad spend",
       "Region-wise sales performance gap",
@@ -34,7 +44,9 @@ const VERTICALS = [
     icon: SquareStack,
     eyebrow: "Academic Batch Management",
     title: "Classes 6–10 — curriculum planning & monitoring",
-    text: "A dedicated technical vertical: how batches are formed, how the syllabus is implemented year on year, and how it's monitored through the session — so your academic calendar runs on a system, not improvisation.",
+    lead: "A dedicated technical vertical",
+    rest: ": how batches are formed, how the syllabus is implemented year on year, and how it's monitored through the session — so your academic calendar runs on a system, not improvisation.",
+    illustration: MiniCalendar,
     bullets: [
       "Batch formation for Classes 6–10",
       "Year-on-year syllabus implementation planning",
@@ -46,7 +58,9 @@ const VERTICALS = [
     icon: HeartHandshake,
     eyebrow: "Student Counselling & Guidance",
     title: "Led personally by one of our Directors",
-    text: "Performance and retention are rarely just a numbers problem. One of the company's own Directors personally leads a full guidance layer around each student — emotional, career, and social counselling, meditation & mindfulness, and parent/teacher orientation.",
+    lead: "Performance and retention are rarely just a numbers problem",
+    rest: ". One of the company's own Directors personally leads a full guidance layer around each student — emotional, career, and social counselling, meditation & mindfulness, and parent/teacher orientation.",
+    illustration: MiniNetwork,
     bullets: [
       "One-on-one student diagnosis",
       "Career, social & emotional counselling, plus mindfulness sessions",
@@ -83,8 +97,10 @@ export function Verticals() {
               </div>
             </div>
             <p className="text-sm leading-relaxed text-neutral-500">
-              {v.text}
+              <strong className="font-semibold text-black">{v.lead}</strong>
+              {v.rest}
             </p>
+            <v.illustration />
             <Accordion type="single" collapsible>
               <AccordionItem value={v.id} className="border-none">
                 <AccordionTrigger className="py-0 text-sm text-nistaran hover:no-underline">

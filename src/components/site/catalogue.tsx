@@ -1,31 +1,46 @@
 import Image from "next/image";
 
 import { Card } from "@/components/ui/card";
+import {
+  MiniBadges,
+  MiniCalendar,
+  MiniFunnel,
+  MiniNetwork,
+  MiniTarget,
+} from "@/components/site/mini-illustrations";
 
 const PRODUCTS = [
   {
     image: "/images/catalogue/admission-support.png",
     title: "Admission Support",
     tagline: "Problem identification · Suggestion · Follow-up",
-    text: "A structured admissions cycle, mainly December–May, that finds where enquiries are lost and follows through on the fix.",
+    lead: "A structured admissions cycle, mainly December–May,",
+    rest: " that finds where enquiries are lost and follows through on the fix.",
+    illustration: MiniFunnel,
   },
   {
     image: "/images/catalogue/portal.png",
     title: "Student-Parent-Teacher Portal",
     tagline: "Dashboards that build the bond between all three",
-    text: "A shared dashboard connecting students, parents, and teachers — one connected loop instead of three separate conversations.",
+    lead: "A shared dashboard connecting students, parents, and teachers",
+    rest: " — one connected loop instead of three separate conversations.",
+    illustration: MiniNetwork,
   },
   {
     image: "/images/catalogue/academic-support.png",
     title: "Academic Support",
     tagline: "Subject enrichment · Student & teacher training",
-    text: "Enrichment portal, need-based batching, teacher training, and the NISTARAN Model of Teaching — for Classes 6–8 and 9–10.",
+    lead: "Enrichment portal, need-based batching, teacher training,",
+    rest: " and the NISTARAN Model of Teaching — for Classes 6–8 and 9–10.",
+    illustration: MiniCalendar,
   },
   {
     image: "/images/catalogue/counselling.png",
     title: "Student Counselling & Guidance",
     tagline: "The need of the hour",
-    text: "Emotional, career & social counselling, meditation & mindfulness, and parent/teacher orientation — a complete guidance layer around each student.",
+    lead: "Emotional, career & social counselling, meditation & mindfulness,",
+    rest: " and parent/teacher orientation — a complete guidance layer around each student.",
+    illustration: MiniTarget,
   },
 ];
 
@@ -33,7 +48,9 @@ const ALL_IN_ONE = {
   image: "/images/catalogue/all-in-one.png",
   title: "All-in-One",
   tagline: "Every pillar of a student's success, combined",
-  text: "All four products above, as a single plan — or pick any two or three and their fees simply add up.",
+  lead: "All four products above, as a single plan",
+  rest: " — or pick any two or three and their fees simply add up.",
+  illustration: MiniBadges,
 };
 
 export function Catalogue() {
@@ -68,8 +85,10 @@ export function Catalogue() {
               <p className="accent-serif mt-0.5 text-sm">{p.tagline}</p>
             </div>
             <p className="text-sm leading-relaxed text-neutral-500">
-              {p.text}
+              <strong className="font-semibold text-black">{p.lead}</strong>
+              {p.rest}
             </p>
+            <p.illustration />
           </Card>
         ))}
 
@@ -89,8 +108,12 @@ export function Catalogue() {
             <p className="accent-serif mt-0.5 text-sm">{ALL_IN_ONE.tagline}</p>
           </div>
           <p className="text-sm leading-relaxed text-neutral-500">
-            {ALL_IN_ONE.text}
+            <strong className="font-semibold text-black">
+              {ALL_IN_ONE.lead}
+            </strong>
+            {ALL_IN_ONE.rest}
           </p>
+          <ALL_IN_ONE.illustration />
         </Card>
       </div>
 
