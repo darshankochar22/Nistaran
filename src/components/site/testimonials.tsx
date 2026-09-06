@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { Button } from "@/components/supabase/Button";
 import { cn } from "@/lib/utils";
 
@@ -7,20 +9,20 @@ const TESTIMONIALS = [
       "The Task & Efficiency Management System means our staff's daily work is finally visible in one place, not scattered across registers.",
     name: "Nahta Classes",
     tag: "CA / CS / CMA coaching, Raipur",
-    gradient: "linear-gradient(135deg,#1a381a,#3f7a3f)",
+    logo: "/images/clients/nahta-classes.jpg",
   },
   {
     quote:
       "Attendance and performance for all 6 batches, on one screen. We catch a slipping student weeks earlier than before.",
     name: "Taparia Institute",
     tag: "CBSE / ICSE coaching",
-    gradient: "linear-gradient(135deg,#8a6a2f,#c79a3c)",
+    logo: "/images/clients/taparia-institute.jpg",
   },
   {
     quote: "The subject-wise bands tell us who needs help before the results do.",
     name: "NSCC Anupam",
     tag: "Commerce coaching, Class XI",
-    gradient: "linear-gradient(135deg,#3a4b57,#6b8494)",
+    logo: "/images/clients/nscc.jpg",
   },
   {
     quote:
@@ -33,20 +35,20 @@ const TESTIMONIALS = [
     quote: "Same dashboard, same clarity. Rolling it out for Class XII was the easy part.",
     name: "NSCC Avanti",
     tag: "Commerce coaching, Class XII",
-    gradient: "linear-gradient(135deg,#1a381a,#6b8494)",
+    logo: "/images/clients/nscc.jpg",
   },
   {
     quote:
       "Built around how we actually run the business, not a generic template with our logo stuck on it.",
     name: "Linen House",
     tag: "Linen & uniform supply",
-    gradient: "linear-gradient(135deg,#3f7a3f,#c79a3c)",
+    logo: "/images/clients/linen-house.jpg",
   },
   {
     quote: "Direct access to the team that built it. No ticket queue.",
     name: "Taparia Institute",
     tag: "CBSE / ICSE coaching",
-    gradient: "linear-gradient(135deg,#c79a3c,#7a1f2b)",
+    logo: "/images/clients/taparia-institute.jpg",
   },
   {
     quote:
@@ -59,13 +61,13 @@ const TESTIMONIALS = [
     quote: "A CMA Raipur landing page that actually looks like the results we get.",
     name: "Nahta Classes",
     tag: "CA / CS / CMA coaching, Raipur",
-    gradient: "linear-gradient(135deg,#c9a24a,#3a4b57)",
+    logo: "/images/clients/nahta-classes.jpg",
   },
   {
     quote: "One repositioning move, backed by a number. That's all we needed.",
     name: "NSCC Anupam",
     tag: "Commerce coaching, Class XI",
-    gradient: "linear-gradient(135deg,#7a1f2b,#1a381a)",
+    logo: "/images/clients/nscc.jpg",
   },
 ];
 
@@ -87,16 +89,35 @@ function initials(name: string) {
     .toUpperCase();
 }
 
+function Avatar({ t }: { t: (typeof TESTIMONIALS)[number] }) {
+  if (t.logo) {
+    return (
+      <span className="flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-neutral-200 bg-white">
+        <Image
+          src={t.logo}
+          alt=""
+          width={40}
+          height={40}
+          className="size-full object-contain"
+        />
+      </span>
+    );
+  }
+  return (
+    <span
+      className="flex size-10 shrink-0 items-center justify-center rounded-full text-xs font-semibold text-white shadow-inner"
+      style={{ backgroundImage: t.gradient }}
+    >
+      {initials(t.name)}
+    </span>
+  );
+}
+
 function TestimonialCard({ t }: { t: (typeof TESTIMONIALS)[number] }) {
   return (
     <div className="rounded-xl border border-neutral-200 bg-white p-5 transition-shadow hover:shadow-[0_20px_40px_-28px_rgba(0,0,0,0.25)]">
       <div className="flex items-center gap-3">
-        <span
-          className="flex size-10 shrink-0 items-center justify-center rounded-full text-xs font-semibold text-white shadow-inner"
-          style={{ backgroundImage: t.gradient }}
-        >
-          {initials(t.name)}
-        </span>
+        <Avatar t={t} />
         <div className="leading-tight">
           <p className="text-sm font-semibold text-black">{t.name}</p>
           <p className="text-xs text-neutral-400">{t.tag}</p>
