@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/* Supabase design system (packages/ui + packages/config from supabase/supabase),
+ * reused as-is from the Garments ERP app. Order matters: semantics first, then
+ * per-theme overrides, then the @theme blocks that turn the variables into
+ * Tailwind utilities. */
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+@import "tw-animate-css";
+
+@import "../styles/supabase/ui/global.css";
+@import "../styles/supabase/ui/semantic.css";
+@import "../styles/supabase/ui/compat.css";
+@import "../styles/supabase/ui/themes/dark.css";
+@import "../styles/supabase/ui/themes/light.css";
+
+@import "../styles/supabase/config/unset-tw-colors.css";
+@import "../styles/supabase/config/colors.css";
+@import "../styles/supabase/config/theme.css";
+@import "../styles/supabase/config/animations.css";
+@import "../styles/supabase/config/utilities.css";
+@import "../styles/supabase/config/variants.css";
+@import "../styles/supabase/config/base.css";
+
+@config "../styles/supabase/config/typography.config.js";
+
+@theme inline {
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
+  --font-heading: var(--font-fraunces);
+}
+
+:root {
+  /* NISTARAN reskin of the Supabase engine: the brand hue (~159, teal-green)
+   * already matches NISTARAN's own teal/ink identity, so it's left as-is.
+   * Surfaces get a faint warm cast (instead of pure neutral) to echo the
+   * original site's cream-paper background, without touching the elevation
+   * math itself. */
+  --surface-hue: 42;
+  --chroma: 0.006;
+
+  --nistaran-saffron: #f2a93d;
+  --nistaran-saffron-dim: #d98f27;
+  --nistaran-coral: #e14e2f;
+  --nistaran-coral-dim: #c43f23;
+  --nistaran-gold: #c79a3c;
+  --nistaran-gold-light: #e3be6a;
+  --nistaran-ink: #163830;
+  --nistaran-paper: #f7eedd;
+}
+
+@theme inline {
+  --color-saffron: var(--nistaran-saffron);
+  --color-saffron-dim: var(--nistaran-saffron-dim);
+  --color-coral: var(--nistaran-coral);
+  --color-coral-dim: var(--nistaran-coral-dim);
+  --color-gold: var(--nistaran-gold);
+  --color-gold-light: var(--nistaran-gold-light);
+  --color-ink: var(--nistaran-ink);
+  --color-paper: var(--nistaran-paper);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading), ui-serif, Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+@layer utilities {
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-brand-600;
+  }
+  .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 2px;
+    background: var(--nistaran-saffron);
+  }
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -56;
+  }
+}
+.flowline {
+  stroke-dasharray: 5 9;
+  animation: flow 2.6s linear infinite;
+}
+.flowline.d2 {
+  animation-delay: 0.45s;
+}
+.flowline.d3 {
+  animation-delay: 0.9s;
+}
+.flowline.d4 {
+  animation-delay: 1.35s;
+}
+.flowline.d5 {
+  animation-delay: 1.8s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
