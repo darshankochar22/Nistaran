@@ -60,24 +60,61 @@ function FooterColumn({
   );
 }
 
+function BrandBlock() {
+  return (
+    <div className="flex items-center gap-3">
+      <Image
+        src="/images/logo.png"
+        alt="NISTARAN Solutions logo"
+        width={44}
+        height={44}
+        className="size-9 shrink-0 rounded-full bg-white p-1 lg:size-10"
+      />
+      <span className="text-lg font-semibold tracking-tight text-white">
+        NISTARAN
+      </span>
+    </div>
+  );
+}
+
 export function Footer() {
   return (
     <footer className="bg-nistaran text-white">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-6">
-          <div className="flex flex-col gap-4 lg:col-span-1">
-            <div className="flex items-center gap-3">
-              <Image
-                src="/images/logo.png"
-                alt="NISTARAN Solutions logo"
-                width={44}
-                height={44}
-                className="size-10 shrink-0 rounded-full bg-white p-1"
-              />
-              <span className="text-lg font-semibold tracking-tight text-white">
-                NISTARAN
-              </span>
-            </div>
+      {/* Mobile: compact — brand, contact, copyright only */}
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6 lg:hidden">
+        <BrandBlock />
+        <div className="flex flex-col gap-2.5">
+          <a
+            href="mailto:solutions@nistaran.in"
+            className="flex items-center gap-2 text-sm text-white/70"
+          >
+            <Mail size={14} className="shrink-0" />
+            solutions@nistaran.in
+          </a>
+          <a
+            href="https://wa.me/917024565602"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-sm text-white/70"
+          >
+            <MessageCircle size={14} className="shrink-0" />
+            +91 70245 65602
+          </a>
+          <span className="flex items-center gap-2 text-sm text-white/70">
+            <MapPin size={14} className="shrink-0" />
+            Chhattisgarh, India
+          </span>
+        </div>
+        <div className="flex items-center justify-between border-t border-white/15 pt-4 text-xs text-white/40">
+          <span>&copy; {new Date().getFullYear()} NISTARAN Solutions</span>
+        </div>
+      </div>
+
+      {/* Desktop: full link directory */}
+      <div className="mx-auto hidden max-w-6xl px-4 py-16 sm:px-6 lg:block">
+        <div className="grid grid-cols-6 gap-10">
+          <div className="col-span-1 flex flex-col gap-4">
+            <BrandBlock />
             <p className="max-w-[22ch] text-sm text-white/60">
               Positioning diagnostics for education and sales businesses in
               Chhattisgarh.
@@ -125,7 +162,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col-reverse items-center gap-3 border-t border-white/15 pt-6 text-xs text-white/40 sm:flex-row sm:justify-between">
+        <div className="mt-14 flex items-center justify-between border-t border-white/15 pt-6 text-xs text-white/40">
           <span>&copy; {new Date().getFullYear()} NISTARAN Solutions</span>
           <span>Chhattisgarh, India</span>
         </div>
