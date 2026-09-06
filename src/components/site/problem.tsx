@@ -14,10 +14,10 @@ const PROBLEMS = [
 ];
 
 const FUNNEL_STAGES = [
-  { x: 0, y: 26, w: 140, h: 72, opacity: 0.9, label: "Enquiry", value: 100, stage: "Stage 1" },
-  { x: 160, y: 35, w: 140, h: 54, opacity: 0.7, label: "Visit", value: 62, stage: "Stage 2" },
+  { x: 0, y: 26, w: 140, h: 72, opacity: 1, label: "Enquiry", value: 100, stage: "Stage 1" },
+  { x: 160, y: 35, w: 140, h: 54, opacity: 0.75, label: "Visit", value: 62, stage: "Stage 2" },
   { x: 320, y: 44, w: 140, h: 36, opacity: 0.5, label: "Form", value: 31, stage: "Stage 3" },
-  { x: 480, y: 50, w: 140, h: 24, opacity: 0.32, label: "Admission", value: 18, stage: "Stage 4" },
+  { x: 480, y: 50, w: 140, h: 24, opacity: 0.3, label: "Admission", value: 18, stage: "Stage 4" },
 ];
 
 function FunnelDiagram() {
@@ -28,13 +28,7 @@ function FunnelDiagram() {
       aria-label="Funnel: 100 enquiries drop to 18 admissions, with the biggest leak between visit and application"
       className="block w-full"
     >
-      <defs>
-        <linearGradient id="fg" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stopColor="#12946B" />
-          <stop offset="1" stopColor="#F2A93D" />
-        </linearGradient>
-      </defs>
-      <g fontFamily="var(--font-mono)" fontSize="11" fill="#D8CBB5">
+      <g fontFamily="var(--font-mono)" fontSize="11" fill="#737373">
         {FUNNEL_STAGES.map((s) => (
           <rect
             key={s.label}
@@ -43,7 +37,7 @@ function FunnelDiagram() {
             width={s.w}
             height={s.h}
             rx="6"
-            fill="url(#fg)"
+            fill="#0a0a0a"
             opacity={s.opacity}
           />
         ))}
@@ -53,16 +47,16 @@ function FunnelDiagram() {
           </text>
         ))}
         {FUNNEL_STAGES.map((s) => (
-          <text key={s.stage} x={s.x} y="122" fill="#B8AE9D">
+          <text key={s.stage} x={s.x} y="122" fill="#a3a3a3">
             {s.stage}
           </text>
         ))}
       </g>
-      <g stroke="#E14E2F" strokeWidth="2" fill="none">
+      <g stroke="#0a0a0a" strokeWidth="1.5" fill="none">
         <path d="M300 62 L 320 62" strokeDasharray="4 4" />
         <circle cx="310" cy="62" r="13" strokeDasharray="3 4" />
       </g>
-      <text x="248" y="146" fontFamily="var(--font-mono)" fontSize="10.5" fill="#E14E2F">
+      <text x="248" y="146" fontFamily="var(--font-mono)" fontSize="10.5" fill="#0a0a0a">
         biggest leak sits here
       </text>
     </svg>
@@ -71,34 +65,27 @@ function FunnelDiagram() {
 
 export function Problem() {
   return (
-    <section className="relative overflow-hidden bg-ink py-16 text-paper sm:py-20">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-16 -top-32 h-[320px] w-[320px] rounded-full bg-saffron/15 blur-[90px]"
-      />
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
-        <h2 className="max-w-[28ch] text-2xl font-medium text-paper sm:text-3xl">
+    <section className="border-t border-neutral-200 bg-neutral-50 py-16 sm:py-20">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <h2 className="max-w-[28ch] text-2xl font-semibold tracking-tight text-black sm:text-3xl">
           Most institutes and businesses in Chhattisgarh compete on gut
           feeling — not on numbers their competitor already has.
         </h2>
         <div className="mt-10 grid gap-7 sm:grid-cols-3">
           {PROBLEMS.map((p) => (
-            <div
-              key={p.num}
-              className="border-t border-white/15 pt-4 transition-colors hover:border-saffron"
-            >
-              <div className="font-mono text-sm text-saffron">{p.num}</div>
-              <p className="mt-2.5 text-sm leading-relaxed text-white/70">
+            <div key={p.num} className="border-t border-neutral-300 pt-4">
+              <div className="font-mono text-sm text-neutral-400">{p.num}</div>
+              <p className="mt-2.5 text-sm leading-relaxed text-neutral-600">
                 {p.text}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 grid items-center gap-8 border-t border-white/15 pt-8 lg:grid-cols-[1fr_auto]">
+        <div className="mt-12 grid items-center gap-8 border-t border-neutral-200 pt-8 lg:grid-cols-[1fr_auto]">
           <FunnelDiagram />
-          <div className="max-w-[24ch] text-sm text-white/70">
-            <b className="mb-1.5 block font-mono text-[0.7rem] uppercase tracking-[0.12em] text-saffron">
+          <div className="max-w-[24ch] text-sm text-neutral-500">
+            <b className="mb-1.5 block text-xs uppercase tracking-[0.12em] text-black">
               What a diagnostic looks like
             </b>
             Every institute loses people between stages. The question is

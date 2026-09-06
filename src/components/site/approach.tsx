@@ -31,11 +31,11 @@ const STEPS = [
 
 export function Approach() {
   return (
-    <section id="approach" className="border-t border-default bg-surface-75/60">
+    <section id="approach" className="border-t border-neutral-200 bg-white">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
         <div className="max-w-2xl">
           <p className="eyebrow">The process</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight">
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-black">
             Four steps, run in order, on your data.
           </h2>
         </div>
@@ -45,14 +45,12 @@ export function Approach() {
             <div key={step.num} className="flex flex-col gap-3">
               <div className="flex items-center gap-3">
                 <IconBackground>
-                  <step.icon size={16} className="text-brand-600" />
+                  <step.icon size={16} className="text-nistaran" />
                 </IconBackground>
-                <span className="font-heading text-xl italic text-brand-600">
-                  {step.num}
-                </span>
+                <span className="accent-serif text-xl">{step.num}</span>
               </div>
-              <h3 className="font-medium text-foreground">{step.title}</h3>
-              <p className="text-sm leading-relaxed text-foreground-light">
+              <h3 className="font-medium text-black">{step.title}</h3>
+              <p className="text-sm leading-relaxed text-neutral-500">
                 {step.text}
               </p>
             </div>

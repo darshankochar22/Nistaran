@@ -30,44 +30,44 @@ const ROWS = [
 
 export function Differentiation() {
   return (
-    <section className="bg-ink py-20 text-paper">
+    <section className="border-t border-neutral-200 bg-neutral-50 py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-2xl">
-          <p className="eyebrow text-gold-light">Why not just buy software</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-paper">
+          <p className="eyebrow">Why not just buy software</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-black">
             Generic software vs. NISTARAN
           </h2>
-          <p className="mt-3 text-white/70">
+          <p className="mt-3 text-neutral-500">
             Most tools are built for everyone and fit no one. Ours are built
             inside a real institution first, then adapted to yours.
           </p>
         </div>
 
         <div className="mt-10 overflow-x-auto">
-          <div className="min-w-[640px] overflow-hidden rounded-xl border border-white/15">
-            <div className="grid grid-cols-[1.1fr_1fr_1fr] border-b border-white/15 bg-white/5">
+          <div className="min-w-[640px] overflow-hidden rounded-xl border border-neutral-200 bg-white">
+            <div className="grid grid-cols-[1.1fr_1fr_1fr] border-b border-neutral-200 bg-neutral-50">
               <div className="p-4" />
-              <div className="p-4 font-mono text-xs uppercase tracking-[0.1em] text-white/50">
+              <div className="p-4 text-xs font-medium uppercase tracking-[0.1em] text-neutral-400">
                 Generic software
               </div>
-              <div className="p-4 font-mono text-xs uppercase tracking-[0.1em] text-white/50">
+              <div className="p-4 text-xs font-medium uppercase tracking-[0.1em] text-nistaran">
                 NISTARAN
               </div>
             </div>
             {ROWS.map((row) => (
               <div
                 key={row.label}
-                className="grid grid-cols-[1.1fr_1fr_1fr] border-b border-white/15 last:border-b-0"
+                className="grid grid-cols-[1.1fr_1fr_1fr] border-b border-neutral-200 last:border-b-0"
               >
-                <div className="p-4 text-sm font-medium text-white/80">
+                <div className="p-4 text-sm font-medium text-black">
                   {row.label}
                 </div>
-                <div className="flex items-start gap-2 border-l border-white/15 p-4 text-sm text-white/50">
-                  <X size={14} className="mt-0.5 shrink-0 text-coral" />
+                <div className="flex items-start gap-2 border-l border-neutral-200 p-4 text-sm text-neutral-400">
+                  <X size={14} className="mt-0.5 shrink-0 text-neutral-300" />
                   {row.generic}
                 </div>
-                <div className="flex items-start gap-2 border-l border-white/15 p-4 text-sm text-paper">
-                  <Check size={14} className="mt-0.5 shrink-0 text-gold-light" />
+                <div className="flex items-start gap-2 border-l border-neutral-200 p-4 text-sm text-black">
+                  <Check size={14} className="mt-0.5 shrink-0 text-nistaran" />
                   {row.ours}
                 </div>
               </div>

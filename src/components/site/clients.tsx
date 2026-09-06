@@ -49,7 +49,7 @@ export function Clients() {
         <h2 className="mt-3 text-3xl font-semibold tracking-tight">
           Our loving clients
         </h2>
-        <p className="mt-3 text-foreground-light">
+        <p className="mt-3 text-neutral-500">
           Live, working software — not mockups — running inside these
           businesses today.
         </p>
@@ -59,13 +59,13 @@ export function Clients() {
         {CLIENTS.map((c) => (
           <Card
             key={c.name}
-            className="flex flex-col items-center gap-3 p-6 text-center transition-colors hover:border-strong"
+            className="flex flex-col items-center gap-3 rounded-xl border-neutral-200 p-6 text-center shadow-none transition-colors hover:border-nistaran"
           >
             <div
-              className="flex size-14 items-center justify-center overflow-hidden rounded-full font-heading text-base font-semibold text-white shadow-sm"
+              className="flex size-14 items-center justify-center overflow-hidden rounded-full text-base font-semibold text-white"
               style={
                 c.initials
-                  ? { background: "linear-gradient(135deg,#7a1f2b,#c9a24a)" }
+                  ? { background: "#171717" }
                   : undefined
               }
             >
@@ -75,19 +75,17 @@ export function Clients() {
                   alt={`${c.name} logo`}
                   width={56}
                   height={56}
-                  className="size-full bg-white object-contain"
+                  className="size-full bg-white object-contain grayscale"
                 />
               ) : (
                 c.initials
               )}
             </div>
-            <h3 className="font-heading text-base font-semibold text-foreground">
-              {c.name}
-            </h3>
-            <p className="font-mono text-[11px] uppercase tracking-[0.06em] text-brand-600">
+            <h3 className="text-base font-semibold text-black">{c.name}</h3>
+            <p className="text-[11px] uppercase tracking-[0.06em] text-neutral-400">
               {c.tag}
             </p>
-            <p className="text-sm leading-relaxed text-foreground-light">
+            <p className="text-sm leading-relaxed text-neutral-500">
               {c.desc}
             </p>
           </Card>

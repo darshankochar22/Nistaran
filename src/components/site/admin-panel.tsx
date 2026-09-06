@@ -174,7 +174,7 @@ export function AdminPanel() {
                 {leads?.map((lead, i) => (
                   <div
                     key={i}
-                    className="border-t border-default pt-2 first:border-t-0 first:pt-0"
+                    className="border-t border-neutral-200 pt-2 first:border-t-0 first:pt-0"
                   >
                     <p className="font-medium text-foreground">
                       {lead.name} <span className="text-foreground-light">· {lead.business}</span>

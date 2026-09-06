@@ -67,24 +67,27 @@ export function Verticals() {
 
       <div className="mt-10 grid gap-5 md:grid-cols-2">
         {VERTICALS.map((v) => (
-          <Card key={v.id} className="flex flex-col gap-4 p-6">
+          <Card
+            key={v.id}
+            className="flex flex-col gap-4 rounded-xl border-neutral-200 p-6 shadow-none"
+          >
             <div className="flex items-start gap-3.5">
               <IconBackground>
-                <v.icon size={16} className="text-brand-600" />
+                <v.icon size={16} className="text-nistaran" />
               </IconBackground>
               <div>
                 <p className="eyebrow">{v.eyebrow}</p>
-                <h3 className="mt-1.5 font-heading text-lg font-medium text-foreground">
+                <h3 className="mt-1.5 text-lg font-medium text-black">
                   {v.title}
                 </h3>
               </div>
             </div>
-            <p className="text-sm leading-relaxed text-foreground-light">
+            <p className="text-sm leading-relaxed text-neutral-500">
               {v.text}
             </p>
             <Accordion type="single" collapsible>
               <AccordionItem value={v.id} className="border-none">
-                <AccordionTrigger className="py-0 text-sm text-brand-600 hover:no-underline">
+                <AccordionTrigger className="py-0 text-sm text-nistaran hover:no-underline">
                   Details
                 </AccordionTrigger>
                 <AccordionContent>
@@ -92,9 +95,9 @@ export function Verticals() {
                     {v.bullets.map((b) => (
                       <li
                         key={b}
-                        className="flex gap-2 border-t border-default pt-2 text-sm text-foreground-light first:border-t-0 first:pt-0"
+                        className="flex gap-2 border-t border-neutral-200 pt-2 text-sm text-neutral-500 first:border-t-0 first:pt-0"
                       >
-                        <span aria-hidden className="text-brand-600">
+                        <span aria-hidden className="text-nistaran">
                           &rarr;
                         </span>
                         {b}

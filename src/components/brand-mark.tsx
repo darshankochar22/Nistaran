@@ -12,26 +12,26 @@ export function BrandMark({
   className?: string;
 }) {
   const boxSize =
-    size === "lg" ? "size-11" : size === "sm" ? "size-7" : "size-9";
+    size === "lg" ? "size-16" : size === "sm" ? "size-9" : "size-12";
   const textSize =
-    size === "lg" ? "text-lg" : size === "sm" ? "text-xs" : "text-sm";
+    size === "lg" ? "text-xl" : size === "sm" ? "text-sm" : "text-base";
 
   return (
-    <div className={cn("flex items-center gap-2.5", className)}>
+    <div className={cn("flex items-center gap-3", className)}>
       <Image
         src="/images/logo.png"
         alt="NISTARAN Solutions logo"
-        width={44}
-        height={44}
+        width={64}
+        height={64}
         priority
         className={cn("shrink-0 object-contain", boxSize)}
       />
       {showWordmark && (
         <div className="flex flex-col leading-none">
-          <span className={cn("font-heading font-semibold text-foreground", textSize)}>
+          <span className={cn("font-semibold tracking-tight text-black", textSize)}>
             NISTARAN
           </span>
-          <span className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.22em] text-foreground-lighter">
+          <span className="mt-0.5 text-[10px] uppercase tracking-[0.18em] text-neutral-400">
             Solutions
           </span>
         </div>

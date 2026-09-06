@@ -28,12 +28,12 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: `
-          bg-brand-400 dark:bg-brand-500
-          hover:bg-brand/80 dark:hover:bg-brand/50
-          text-foreground
-          border-brand-500/75 dark:border-brand/30
-          hover:border-brand-600 dark:hover:border-brand
-          data-[state=open]:bg-brand-400/80 dark:data-[state=open]:bg-brand-500/80
+          bg-nistaran
+          hover:bg-nistaran-dark
+          text-white
+          border-nistaran
+          hover:border-nistaran-dark
+          data-[state=open]:bg-nistaran-dark
           `,
         default: `
           text-foreground
@@ -51,7 +51,7 @@ const buttonVariants = cva(
         outline: `
           text-foreground
           bg-transparent
-          border-strong hover:border-foreground-muted
+          border-neutral-300 hover:border-nistaran
           data-[state=open]:border-stronger
         `,
         dashed: `

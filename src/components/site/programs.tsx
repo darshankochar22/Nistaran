@@ -51,31 +51,29 @@ const PROGRAMS = [
 
 export function Programs() {
   return (
-    <section
-      id="programs"
-      className="border-t border-default bg-surface-75/60"
-    >
+    <section id="programs" className="border-t border-neutral-200 bg-neutral-50">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
         <div className="max-w-2xl">
           <p className="eyebrow">For education clients</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight">
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-black">
             School Development Programs
           </h2>
         </div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {PROGRAMS.map((p) => (
-            <Card key={p.title} className="flex flex-col gap-3 p-5">
+            <Card
+              key={p.title}
+              className="flex flex-col gap-3 rounded-xl border-neutral-200 bg-white p-5 shadow-none"
+            >
               <IconBackground>
-                <p.icon size={16} className="text-brand-600" />
+                <p.icon size={16} className="text-nistaran" />
               </IconBackground>
               <div>
                 <p className="eyebrow">{p.eyebrow}</p>
-                <h3 className="mt-1.5 font-medium text-foreground">
-                  {p.title}
-                </h3>
+                <h3 className="mt-1.5 font-medium text-black">{p.title}</h3>
               </div>
-              <p className="text-sm leading-relaxed text-foreground-light">
+              <p className="text-sm leading-relaxed text-neutral-500">
                 {p.text}
               </p>
             </Card>

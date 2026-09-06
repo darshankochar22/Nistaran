@@ -27,21 +27,21 @@ export function SiteNav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-default bg-background/85 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <header className="sticky top-0 z-40 border-b border-neutral-200 bg-white/85 backdrop-blur-md">
+      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 sm:px-6">
         <a href="#top" aria-label="NISTARAN Solutions — home">
           <BrandMark />
         </a>
 
         <nav
           aria-label="Primary"
-          className="hidden items-center gap-7 text-sm text-foreground-light md:flex"
+          className="hidden items-center gap-7 text-sm text-neutral-500 md:flex"
         >
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="transition-colors hover:text-foreground"
+              className="transition-colors hover:text-black"
             >
               {link.label}
             </a>
@@ -76,7 +76,7 @@ export function SiteNav() {
                 <SheetClose asChild key={link.href}>
                   <a
                     href={link.href}
-                    className="border-t border-default py-3 text-base font-medium text-foreground-light first:border-t-0 hover:text-foreground"
+                    className="border-t border-neutral-200 py-3 text-base font-medium text-neutral-600 first:border-t-0 hover:text-black"
                   >
                     {link.label}
                   </a>

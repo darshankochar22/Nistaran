@@ -1,4 +1,3 @@
-import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 const TIERS = [
@@ -30,41 +29,36 @@ const TIERS = [
 
 export function Tiers() {
   return (
-    <section id="tiers" className="border-t border-default bg-surface-75/60">
+    <section id="tiers" className="border-t border-neutral-200 bg-white">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
         <div className="max-w-2xl">
           <p className="eyebrow">The model</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight">
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-black">
             A different engagement for a different market.
           </h2>
         </div>
 
-        <div className="mt-10 grid overflow-hidden rounded-xl border border-default sm:grid-cols-3">
-          {TIERS.map((t, i) => (
-            <Card
+        <div className="mt-10 grid gap-5 sm:grid-cols-3">
+          {TIERS.map((t) => (
+            <div
               key={t.tag}
               className={cn(
-                "flex flex-col gap-4 rounded-none border-0 p-7",
-                i !== TIERS.length - 1 &&
-                  "border-b border-default sm:border-b-0 sm:border-r",
-                t.highlight && "bg-ink text-paper"
+                "relative flex flex-col gap-4 rounded-xl border p-7",
+                t.highlight
+                  ? "border-2 border-nistaran"
+                  : "border-neutral-200"
               )}
             >
-              <p
-                className={cn(
-                  "font-mono text-xs uppercase tracking-[0.1em]",
-                  t.highlight ? "text-saffron" : "text-brand-600"
-                )}
-              >
+              {t.highlight && (
+                <span className="absolute -top-3 left-7 rounded-full bg-nistaran px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-[0.08em] text-white">
+                  Most common
+                </span>
+              )}
+              <p className="text-xs font-medium uppercase tracking-[0.1em] text-neutral-400">
                 {t.tag}
               </p>
-              <h3 className="font-heading text-xl font-medium">{t.title}</h3>
-              <p
-                className={cn(
-                  "text-sm leading-relaxed",
-                  t.highlight ? "text-white/70" : "text-foreground-light"
-                )}
-              >
+              <h3 className="text-xl font-medium text-black">{t.title}</h3>
+              <p className="text-sm leading-relaxed text-neutral-500">
                 {t.desc}
               </p>
               <div className="flex gap-1.5">
@@ -73,34 +67,18 @@ export function Tiers() {
                     key={idx}
                     className={cn(
                       "h-1.5 flex-1 rounded-full",
-                      idx < t.depth
-                        ? t.highlight
-                          ? "bg-saffron"
-                          : "bg-brand-600"
-                        : t.highlight
-                          ? "bg-white/15"
-                          : "bg-surface-300"
+                      idx < t.depth ? "bg-nistaran" : "bg-neutral-200"
                     )}
                   />
                 ))}
               </div>
-              <span
-                className={cn(
-                  "font-mono text-[11px] uppercase tracking-[0.08em]",
-                  t.highlight ? "text-white/50" : "text-foreground-lighter"
-                )}
-              >
+              <span className="text-[11px] uppercase tracking-[0.08em] text-neutral-400">
                 Data depth available
               </span>
-              <div
-                className={cn(
-                  "mt-2 border-t pt-4 font-mono text-sm",
-                  t.highlight ? "border-white/15" : "border-dashed border-default"
-                )}
-              >
+              <div className="mt-2 border-t border-dashed border-neutral-200 pt-4 text-sm font-medium text-black">
                 {t.model}
               </div>
-            </Card>
+            </div>
           ))}
         </div>
       </div>
