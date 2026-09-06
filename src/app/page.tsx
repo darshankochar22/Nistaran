@@ -10,6 +10,7 @@ import { MottoStrip } from "@/components/site/motto-strip";
 import { Problem } from "@/components/site/problem";
 import { Programs } from "@/components/site/programs";
 import { SiteNav } from "@/components/site/site-nav";
+import { Testimonials } from "@/components/site/testimonials";
 import { Tiers } from "@/components/site/tiers";
 import { Verticals } from "@/components/site/verticals";
 
@@ -28,6 +29,7 @@ export default function Home() {
         <Catalogue />
         <Tiers />
         <Differentiation />
+        <Testimonials />
         <CTA />
       </main>
       <Footer />
